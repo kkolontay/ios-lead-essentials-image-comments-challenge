@@ -10,13 +10,17 @@ public final class ImageCommentsMapper {
 
 		private struct ImageCommentsItem: Decodable {
 			let id: UUID
-			let description: String?
-			let location: String?
-			let image: URL
+			let message: String
+			let created_at: Date
+			let author: Author
 		}
 
-		var images: [ImageComments] {
-			items.map { ImageComments(id: $0.id, description: $0.description, location: $0.location, url: $0.image) }
+		private struct Author: Decodable {
+			let username: String
+		}
+
+		var comments: [ImageComment] {
+			items.map { ImageComment(id: $0.id, message: $0.message, createdAt: $0.created_at, username: $0.author.username) }
 		}
 	}
 
@@ -24,15 +28,17 @@ public final class ImageCommentsMapper {
 		case invalidData
 	}
 
-	public static func map(_ data: Data, from response: HTTPURLResponse) throws -> [ImageComments] {
-		guard isOK(code: response.statusCode), let root = try? JSONDecoder().decode(Root.self, from: data) else {
+	public static func map(_ data: Data, from response: HTTPURLResponse) throws -> [ImageComment] {
+		let decoder = JSONDecoder()
+		decoder.dateDecodingStrategy = .iso8601
+		guard isOK(response: response), let root = try? decoder.decode(Root.self, from: data) else {
 			throw Error.invalidData
 		}
 
-		return root.images
+		return root.comments
 	}
 
-	static func isOK(code: Int) -> Bool {
-		(200 ... 299).contains(code)
+	static func isOK(response: HTTPURLResponse) -> Bool {
+		(200 ... 299).contains(response.statusCode)
 	}
 }

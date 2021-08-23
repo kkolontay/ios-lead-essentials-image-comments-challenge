@@ -43,13 +43,15 @@ class ImageCommentsMapperTests: XCTestCase {
 	func test_map_deliversItemsOn2xxHTTPResponseWithJSONItems() throws {
 		let item1 = makeItem(
 			id: UUID(),
-			imageURL: URL(string: "http://a-url.com")!)
+			message: "a message",
+			createdAt: (Date(timeIntervalSince1970: 1598627222), "2020-08-28T15:07:02+0000"),
+			username: "a username")
 
 		let item2 = makeItem(
 			id: UUID(),
-			description: "a description",
-			location: "a location",
-			imageURL: URL(string: "http://another-url.com")!)
+			message: "a message",
+			createdAt: (Date(timeIntervalSince1970: 1577881882), "2020-01-01T12:31:22+0000"),
+			username: "any usernamename")
 
 		let json = makeItemsJSON([item1.json, item2.json])
 		let samples = [200, 210, 243, 287, 299]
@@ -64,14 +66,16 @@ class ImageCommentsMapperTests: XCTestCase {
 
 	// MARK: - Helpers
 
-	private func makeItem(id: UUID, description: String? = nil, location: String? = nil, imageURL: URL) -> (model: ImageComments, json: [String: Any]) {
-		let item = ImageComments(id: id, description: description, location: location, url: imageURL)
+	private func makeItem(id: UUID, message: String, createdAt: (date: Date, iso8601String: String), username: String) -> (model: ImageComment, json: [String: Any]) {
+		let item = ImageComment(id: id, message: message, createdAt: createdAt.date, username: username)
 
 		let json = [
 			"id": id.uuidString,
-			"description": description,
-			"location": location,
-			"image": imageURL.absoluteString
+			"message": message,
+			"created_at": createdAt.iso8601String,
+			"author": [
+				"username": username
+			]
 		].compactMapValues { $0 }
 
 		return (item, json)
