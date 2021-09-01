@@ -22,6 +22,7 @@ extension ImageCommentCellController: UITableViewDataSource, UITableViewDelegate
 
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		cell = tableView.dequeueReusableCell()
+		//cell
 		//    cell?.locationContainer.isHidden = !viewModel.hasLocation
 		//    cell?.locationLabel.text = viewModel.location
 		//    cell?.descriptionLabel.text = viewModel.description
@@ -51,11 +52,7 @@ extension ImageCommentCellController: UITableViewDataSource, UITableViewDelegate
 extension ImageCommentCellController: ResourceView, ResourceLoadingView, ResourceErrorView {
 	public func display(_ viewModel: ImageCommentViewModel) {}
 
-	public func display(_ viewModel: ResourceLoadingViewModel) {
-		cell?.feedImageContainer.isShimmering = viewModel.isLoading
-	}
+	public func display(_ viewModel: ResourceLoadingViewModel) {}
 
-	public func display(_ viewModel: ResourceErrorViewModel) {
-		cell?.feedImageRetryButton.isHidden = viewModel.message == nil
-	}
+	public func display(_ viewModel: ResourceErrorViewModel) {}
 }
