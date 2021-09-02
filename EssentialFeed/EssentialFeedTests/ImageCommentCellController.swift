@@ -22,10 +22,9 @@ extension ImageCommentCellController: UITableViewDataSource, UITableViewDelegate
 
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		cell = tableView.dequeueReusableCell()
-		//cell
-		//    cell?.locationContainer.isHidden = !viewModel.hasLocation
-		//    cell?.locationLabel.text = viewModel.location
-		//    cell?.descriptionLabel.text = viewModel.description
+		cell?.messageLabel.text = viewModel.message
+		cell?.dateLabel.text = viewModel.date
+		cell?.usernameLabel.text = viewModel.username
 
 		return cell!
 	}

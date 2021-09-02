@@ -16,18 +16,64 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="dkz-Yd-016">
-                            <rect key="frame" x="0.0" y="629.00000034679067" width="414" height="16"/>
+                            <rect key="frame" x="0.0" y="221.50000034679067" width="414" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="580" id="NAF-tQ-ujY">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="580"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ImageCommentCell" id="NAF-tQ-ujY" customClass="ImageCommentCell" customModule="EssentialFeediOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="172.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NAF-tQ-ujY" id="FIz-u7-iOU">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="580"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="172.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sJr-Un-mC5">
+                                            <rect key="frame" x="20" y="11" width="374" height="150.5"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WYG-1S-uId">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jix-4T-aLh">
+                                                            <rect key="frame" x="0.0" y="0.0" width="81.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXQ-Xi-ehv">
+                                                            <rect key="frame" x="340" y="0.0" width="34" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRh-GO-SbT">
+                                                    <rect key="frame" x="0.0" y="28.5" width="374" height="122"/>
+                                                    <string key="text">messages messages messages messages messages messages messages messagesmessagesmessages messages messages messages messages messages messages messagesmessages messagesmessages </string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="WYG-1S-uId" secondAttribute="trailing" id="RzV-tb-fsV"/>
+                                                <constraint firstItem="WYG-1S-uId" firstAttribute="leading" secondItem="sJr-Un-mC5" secondAttribute="leading" id="ycx-C6-ChM"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="sJr-Un-mC5" firstAttribute="top" secondItem="FIz-u7-iOU" secondAttribute="topMargin" id="8Ub-UY-6Td"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="sJr-Un-mC5" secondAttribute="trailing" id="Ege-tF-9PV"/>
+                                        <constraint firstItem="sJr-Un-mC5" firstAttribute="leading" secondItem="FIz-u7-iOU" secondAttribute="leadingMargin" id="bWA-mZ-3jV"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="sJr-Un-mC5" secondAttribute="bottom" id="oor-bG-tgK"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="feed-image-cell"/>
+                                <connections>
+                                    <outlet property="dateLabel" destination="mXQ-Xi-ehv" id="T1X-rV-OG4"/>
+                                    <outlet property="messageLabel" destination="oRh-GO-SbT" id="FQJ-dP-he7"/>
+                                    <outlet property="usernameLabel" destination="Jix-4T-aLh" id="Ne8-7L-DKs"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -51,6 +97,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
