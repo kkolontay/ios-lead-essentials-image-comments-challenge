@@ -38,6 +38,7 @@
 		0895DAAE234B3F7E0031BB2D /* EssentialFeediOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0895DAAA234B3F7E0031BB2D /* EssentialFeediOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D091795126E2ECEB00F4E35C /* CommentsUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091795026E2ECEB00F4E35C /* CommentsUIIntegrationTests.swift */; };
 		D091795326E2EF1800F4E35C /* CommentsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091795226E2EF1800F4E35C /* CommentsUIComposer.swift */; };
+		D091795526E3025200F4E35C /* CommentsViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091795426E3025200F4E35C /* CommentsViewAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		0895DAAA234B3F7E0031BB2D /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D091795026E2ECEB00F4E35C /* CommentsUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsUIIntegrationTests.swift; sourceTree = "<group>"; };
 		D091795226E2EF1800F4E35C /* CommentsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsUIComposer.swift; sourceTree = "<group>"; };
+		D091795426E3025200F4E35C /* CommentsViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				08073B40238D2DF900A75DC6 /* WeakRefVirtualProxy.swift */,
 				08073B41238D2DF900A75DC6 /* LoadResourcePresentationAdapter.swift */,
 				08073B43238D2DFA00A75DC6 /* FeedViewAdapter.swift */,
+				D091795426E3025200F4E35C /* CommentsViewAdapter.swift */,
 				0895DA8F234B3B970031BB2D /* Assets.xcassets */,
 				0895DA91234B3B970031BB2D /* LaunchScreen.storyboard */,
 				0895DA94234B3B970031BB2D /* Info.plist */,
@@ -332,6 +335,7 @@
 				08073B44238D2DFA00A75DC6 /* FeedUIComposer.swift in Sources */,
 				0895DA87234B3B950031BB2D /* AppDelegate.swift in Sources */,
 				08073B45238D2DFA00A75DC6 /* LoadResourcePresentationAdapter.swift in Sources */,
+				D091795526E3025200F4E35C /* CommentsViewAdapter.swift in Sources */,
 				08073B48238D2DFA00A75DC6 /* WeakRefVirtualProxy.swift in Sources */,
 				0895DA89234B3B950031BB2D /* SceneDelegate.swift in Sources */,
 				08073B49238D2DFA00A75DC6 /* FeedViewAdapter.swift in Sources */,
