@@ -129,6 +129,27 @@ class CommentsUIIntegrationTests: XCTestCase {
 		XCTAssertEqual(sut.errorMessage, nil)
 	}
 
+	func test_deinit_cancelsuRningRequest() {
+		var cancellCallCount = 0
+		var sut: ListViewController?
+
+		autoreleasepool {
+			sut = CommentsUIComposer.commentsComposedWith(commentsLoader: {
+				PassthroughSubject<[ImageComment], Error>().handleEvents(receiveCancel: {
+					cancellCallCount += 1
+				}).eraseToAnyPublisher()
+			})
+
+			sut?.loadViewIfNeeded()
+		}
+
+		XCTAssertEqual(cancellCallCount, 0)
+
+		sut = nil
+
+		XCTAssertEqual(cancellCallCount, 1)
+	}
+
 	// MARK: - Helpers
 
 	private func makeSUT(
