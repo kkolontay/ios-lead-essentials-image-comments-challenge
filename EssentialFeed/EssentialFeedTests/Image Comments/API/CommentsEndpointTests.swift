@@ -8,9 +8,9 @@ import EssentialFeed
 class CommentsEndpointTests: XCTestCase {
 	func test_feed_endpointURL() {
 		let baseURL = URL(string: "http://base-url.com")!
-
-		let received = ImageCommentsEndpoint.get.url(baseURL: baseURL, imageId: "1")
-		let expected = URL(string: "http://base-url.com/v1/image/1/comments")!
+		let uuid = UUID()
+		let received = ImageCommentsEndpoint.get(uuid).url(baseURL: baseURL)
+		let expected = URL(string: "http://base-url.com/v1/image/\(uuid)/comments")!
 
 		XCTAssertEqual(received, expected)
 	}
