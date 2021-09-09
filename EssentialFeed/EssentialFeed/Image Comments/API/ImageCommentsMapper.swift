@@ -38,7 +38,7 @@ public final class ImageCommentsMapper {
 		return root.comments
 	}
 
-	static func isOK(response: HTTPURLResponse) -> Bool {
+	private static func isOK(response: HTTPURLResponse) -> Bool {
 		(200 ... 299).contains(response.statusCode)
 	}
 }

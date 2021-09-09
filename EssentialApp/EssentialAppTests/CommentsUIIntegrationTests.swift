@@ -55,7 +55,7 @@ class CommentsUIIntegrationTests: XCTestCase {
 		let (sut, loader) = makeSUT()
 
 		sut.loadViewIfNeeded()
-		assertThat(sut, isRendering: [ImageComment]())
+		assertThat(sut, isRendering: [])
 
 		loader.completeCommentsLoading(with: [comment0], at: 0)
 		assertThat(sut, isRendering: [comment0])
@@ -75,7 +75,7 @@ class CommentsUIIntegrationTests: XCTestCase {
 
 		sut.simulateUserInitiatedReload()
 		loader.completeCommentsLoading(with: [], at: 1)
-		assertThat(sut, isRendering: [ImageComment]())
+		assertThat(sut, isRendering: [])
 	}
 
 	func test_loadCommentsCompletion_doesNotAlterCurrentRenderingStateOnError() {
@@ -181,7 +181,7 @@ class CommentsUIIntegrationTests: XCTestCase {
 		return ImageComment(id: UUID(), message: message, createdAt: createdAt, username: username)
 	}
 
-	class LoaderSpy {
+	private final class LoaderSpy {
 		// MARK: - FeedLoader
 
 		private var request = [PassthroughSubject<[ImageComment], Error>]()

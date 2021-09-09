@@ -100,18 +100,18 @@ extension ListViewController {
 	}
 
 	func commentMessage(at row: Int) -> String? {
-		commentImageView(at: row)?.messageLabel.text
+		imageCommentCell(at: row)?.messageLabel.text
 	}
 
 	func commentDate(at row: Int) -> String? {
-		commentImageView(at: row)?.dateLabel.text
+		imageCommentCell(at: row)?.dateLabel.text
 	}
 
 	func commentUsername(at row: Int) -> String? {
-		commentImageView(at: row)?.usernameLabel.text
+		imageCommentCell(at: row)?.usernameLabel.text
 	}
 
-	private func commentImageView(at row: Int) -> ImageCommentCell? {
+	private func imageCommentCell(at row: Int) -> ImageCommentCell? {
 		cell(row: row, section: commentsSection) as? ImageCommentCell
 	}
 
