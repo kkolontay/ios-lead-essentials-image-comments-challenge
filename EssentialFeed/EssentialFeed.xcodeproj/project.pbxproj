@@ -357,6 +357,7 @@
 		080D8BF3251E278E00602717 /* Image Comments UI */ = {
 			isa = PBXGroup;
 			children = (
+				D03B698D26E986F5005F1046 /* ImageCommentsSnapshotTests.swift */,
 				D025665526DDAD4600193F0C /* snapshots */,
 			);
 			path = "Image Comments UI";
@@ -703,7 +704,6 @@
 				080D8BCB251E25A400602717 /* Shared UI */,
 				084BF964251B99F600E57FC8 /* Feed UI */,
 				080D8BF3251E278E00602717 /* Image Comments UI */,
-				D03B698D26E986F5005F1046 /* ImageCommentsSnapshotTests.swift */,
 			);
 			path = EssentialFeediOSTests;
 			sourceTree = "<group>";
