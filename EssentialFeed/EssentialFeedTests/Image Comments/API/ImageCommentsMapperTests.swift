@@ -6,7 +6,7 @@ import XCTest
 import EssentialFeed
 
 class ImageCommentsMapperTests: XCTestCase {
-	func test_map_throwsErrorOnNon200HTTPResponse() throws {
+	func test_map_throwsErrorOnNon2xxHTTPResponse() throws {
 		let json = makeItemsJSON([])
 
 		try invalidCodes.forEach { code in
